@@ -1,0 +1,36 @@
+{
+    "name": "WeatherFlow Local UDP",
+    "version": "1.0.0",
+    "description": "Receive local UDP broadcast updates from WeatherFlow systems, like the Tempest station.",
+    "keywords": "WeatherFlow, Tempest API",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/lylavoie/WeatherFlowLocalUdp.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Lincoln Lavoie",
+        "email": "lincoln.lavoie@gmail.com",
+        "url": "https://github.com/lylavoie"
+      }
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/lylavoie/WeatherFlowLocalUdp",
+    "frameworks": ["arduino"],
+    "platforms": ["*"],
+    "headers": ["wf.h"],
+    "dependencies": {
+        "bblanchon/ArduinoJson": "^6.18.0"
+      },
+    "examples": [
+        {
+            "name": "Tempest Rapid Wind Updates",
+            "base": "examples/tempest_rapid_wind",
+            "files": [
+                "tempest_rapid_wind.cpp"
+            ]
+        }
+    ]
+}
