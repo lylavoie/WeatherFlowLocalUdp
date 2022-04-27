@@ -1,12 +1,9 @@
-/**
- * WeatherFlow Tempest UDP API v171
- * 
- * Copyright: Lincoln Lavoie, lincoln.lavoie@gmail.com, 2022
- * 
- * License: Apache License v2.0
+/* SPDX-License-Identifier: MIT
+ * Copyright (c) 2022  Lincoln Lavoie <lincoln.lavoie@gmail.com>
  * 
  * Implements a UDP receiver for WeatherFlow Tempest UDP messages
  * for the Tempest, Sky, and AIR weather stations and receiviers.
+ * Based on  WeatherFlow Tempest UDP API v171
  * 
  * Usage:
  * 1. Begin() method should be called once to setup the UDP receiver,
