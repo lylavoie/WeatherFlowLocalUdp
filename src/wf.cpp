@@ -164,7 +164,7 @@ bool wfLightningStrikeEvent::ParseMsg(JsonDocument& jsonMsg){
 float wfLightningStrikeEvent::Distance(void){
     switch (units){
         case Imperial:
-            return fDistance / 1.609;
+            return fDistance / (float)1.609;
             break;
         
         default:  // Metric
@@ -257,7 +257,7 @@ bool wfRapidWind::ParseMsg(JsonDocument& jsonMsg){
 float wfRapidWind::WindSpeed(){
     switch(units){
         case Imperial:
-            return fWindSpeed * 2.237;
+            return fWindSpeed * (float)2.237;
             break;
             
         default: // Metric
@@ -367,7 +367,7 @@ bool wfObservationAir::ParseMsg(JsonDocument& jsonMsg){
 float wfObservationAir::StationPressure(void){
     switch (units){
         case Imperial:
-            return fStationPressure / 33.864; 
+            return fStationPressure / (float)33.864; 
             break;
         default:  // Metric
             return fStationPressure;
@@ -381,7 +381,7 @@ float wfObservationAir::StationPressure(void){
 float wfObservationAir::AirTemperature(void){
     switch (units){
         case Imperial:
-            return (fAirTemp * (9/5)) + 32; 
+            return (fAirTemp * ((float)9/(float)5)) + (float)32; 
             break;
         default:  // Metric
             return fAirTemp;
@@ -395,7 +395,7 @@ float wfObservationAir::AirTemperature(void){
 float wfObservationAir::LightningStrikeAvgDistance(void){
     switch (units){
         case Imperial:
-            return fLightningStrikeAvgDistance / 1.609; 
+            return fLightningStrikeAvgDistance / (float)1.609; 
             break;
         default:  // Metric
             return fLightningStrikeAvgDistance;
@@ -533,7 +533,7 @@ bool wfObservationSky::ParseMsg(JsonDocument& jsonMsg){
 float wfObservationSky::Illuminance(void){
     switch (units){
         case Imperial:
-            return fIlluminance / 10.764; 
+            return fIlluminance / (float)10.764; 
             break;
         default:  // Metric
             return fIlluminance;
@@ -547,7 +547,7 @@ float wfObservationSky::Illuminance(void){
 float wfObservationSky::RainOverPreviousMinute(void){
     switch (units){
         case Imperial:
-            return fRainOverPrevMin / 25.4; 
+            return fRainOverPrevMin / (float)25.4; 
             break;
         default:  // Metric
             return fRainOverPrevMin;
@@ -561,7 +561,7 @@ float wfObservationSky::RainOverPreviousMinute(void){
 float wfObservationSky::WindAverage(void){
     switch (units){
         case Imperial:
-            return fWindAverage * 2.237; 
+            return fWindAverage * (float)2.237; 
             break;
         default:  // Metric
             return fWindAverage;
@@ -575,7 +575,7 @@ float wfObservationSky::WindAverage(void){
 float wfObservationSky::WindLull(void){
     switch (units){
         case Imperial:
-            return fWindLull * 2.237; 
+            return fWindLull * (float)2.237; 
             break;
         default:  // Metric
             return fWindLull;
@@ -589,7 +589,7 @@ float wfObservationSky::WindLull(void){
 float wfObservationSky::WindGust(void){
     switch (units){
         case Imperial:
-            return fWindGust * 2.237; 
+            return fWindGust * (float)2.237; 
             break;
         default:  // Metric
             return fWindGust;
@@ -603,7 +603,7 @@ float wfObservationSky::WindGust(void){
 float wfObservationSky::SolarRadiation(void){
     switch (units){
         case Imperial:
-            return fSolarRadiation / 10.764; 
+            return fSolarRadiation / (float)10.764; 
             break;
         default:  // Metric
             return fSolarRadiation;
@@ -617,7 +617,7 @@ float wfObservationSky::SolarRadiation(void){
 float wfObservationSky::LocalDayRainAccumulation(void){
     switch (units){
         case Imperial:
-            return fLocalDayRainAccumulation / 25.4; 
+            return fLocalDayRainAccumulation / (float)25.4; 
             break;
         default:  // Metric
             return fLocalDayRainAccumulation;
@@ -773,7 +773,7 @@ bool wfObservationTempest::ParseMsg(JsonDocument& jsonMsg){
 float wfObservationTempest::WindAverage(void){
     switch (units){
         case Imperial:
-            return fWindAverage * 2.237; 
+            return fWindAverage * (float)2.237; 
             break;
         default:  // Metric
             return fWindAverage;
@@ -787,7 +787,7 @@ float wfObservationTempest::WindAverage(void){
 float wfObservationTempest::WindLull(void){
     switch (units){
         case Imperial:
-            return fWindLull * 2.237; 
+            return fWindLull * (float)2.237; 
             break;
         default:  // Metric
             return fWindLull;
@@ -801,7 +801,7 @@ float wfObservationTempest::WindLull(void){
 float wfObservationTempest::WindGust(void){
     switch (units){
         case Imperial:
-            return fWindGust * 2.237; 
+            return fWindGust * (float)2.237; 
             break;
         default:  // Metric
             return fWindGust;
@@ -815,7 +815,7 @@ float wfObservationTempest::WindGust(void){
 float wfObservationTempest::StationPressure(void){
     switch (units){
         case Imperial:
-            return fStationPressure / 33.864; 
+            return fStationPressure / (float)33.864; 
             break;
         default:  // Metric
             return fStationPressure;
@@ -829,7 +829,7 @@ float wfObservationTempest::StationPressure(void){
 float wfObservationTempest::AirTemperature(void){
     switch (units){
         case Imperial:
-            return (fAirTemp * (9/5)) + 32; 
+            return (fAirTemp * ((float)9/((float)5)) + (float)32); 
             break;
         default:  // Metric
             return fAirTemp;
@@ -843,7 +843,7 @@ float wfObservationTempest::AirTemperature(void){
 float wfObservationTempest::Illuminance(void){
     switch (units){
         case Imperial:
-            return fIlluminance / 10.764; 
+            return fIlluminance / (float)10.764; 
             break;
         default:  // Metric
             return fIlluminance;
@@ -857,7 +857,7 @@ float wfObservationTempest::Illuminance(void){
 float wfObservationTempest::SolarRadiation(void){
     switch (units){
         case Imperial:
-            return fSolarRadiation / 10.764; 
+            return fSolarRadiation / (float)10.764; 
             break;
         default:  // Metric
             return fSolarRadiation;
@@ -871,7 +871,7 @@ float wfObservationTempest::SolarRadiation(void){
 float wfObservationTempest::RainOverPreviousMinute(void){
     switch (units){
         case Imperial:
-            return fRainOverPrevMin / 25.4; 
+            return fRainOverPrevMin / (float)25.4; 
             break;
         default:  // Metric
             return fRainOverPrevMin;
@@ -885,7 +885,7 @@ float wfObservationTempest::RainOverPreviousMinute(void){
 float wfObservationTempest::LightningStrikeAverageDistance(void){
     switch (units){
         case Imperial:
-            return fLightningStrikeAvgDistance / 1.609; 
+            return fLightningStrikeAvgDistance / (float)1.609; 
             break;
         default:  // Metric
             return fLightningStrikeAvgDistance;
