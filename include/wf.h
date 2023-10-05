@@ -253,7 +253,7 @@ class wfDeviceStatus{
         unsigned int uiFirmwareVersion;
         time_t ulTimeStamp;
         time_t ulUptime;
-        unsigned int uiVoltage;
+        float fVoltage;
         int iRssi;
         int iHubRssi;
         unsigned int uiSensorStatus;
@@ -283,7 +283,7 @@ class wfDeviceStatus{
         unsigned int FirmwareVersion(void);
         time_t TimeStamp(void);
         time_t Uptime(void);
-        unsigned int Voltage(void);
+        float Voltage(void);
         int RSSI(void);
         int HubRSSI(void);
         unsigned int SensorStatus(void);
@@ -293,7 +293,7 @@ class wfDeviceStatus{
 class wfHubStatus{
     private:
         String strHubSerialNumber;
-        String strFirmwareVersion;
+        unsigned int uiFirmwareVersion;
         time_t ulTimeStamp;
         time_t ulUptime;
         int iRssi;
@@ -304,7 +304,7 @@ class wfHubStatus{
         wfHubStatus();
         bool ParseMsg(JsonDocument&);
         String HubSerialNumber(void);
-        String FirmwareVersion(void);
+        unsigned int FirmwareVersion(void);
         time_t TimeStamp(void);
         time_t Uptime(void);
         String ResetFlags(void);

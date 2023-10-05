@@ -76,6 +76,11 @@ bool wfRainStartEvent::ParseMsg(JsonDocument& jsonMsg){
         valid = false;
         return false;
     };
+
+    // Station info (serial numbers)
+    strSerialNumber = jsonMsg["serial_number"].as<String>();
+    strHubSerialNumber = jsonMsg["hub_sn"].as<String>();
+
     // Parse the message array
     uint8_t count = 0; 
     for( JsonVariant RainStart : jsonMsg["evt"].as<JsonArray>() ){
@@ -129,6 +134,11 @@ bool wfLightningStrikeEvent::ParseMsg(JsonDocument& jsonMsg){
         valid = false;
         return false;
     };
+
+    // Station info (serial numbers)
+    strSerialNumber = jsonMsg["serial_number"].as<String>();
+    strHubSerialNumber = jsonMsg["hub_sn"].as<String>();
+
     // Parse the message array
     uint8_t count = 0; 
     for( JsonVariant LightningStrike : jsonMsg["evt"].as<JsonArray>() ){
@@ -222,6 +232,11 @@ bool wfRapidWind::ParseMsg(JsonDocument& jsonMsg){
         valid = false;
         return false;
     };
+
+    // Station info (serial numbers)
+    strSerialNumber = jsonMsg["serial_number"].as<String>();
+    strHubSerialNumber = jsonMsg["hub_sn"].as<String>();
+
     // Parse the message array
     uint8_t count = 0; 
     for( JsonVariant RapidWind : jsonMsg["ob"].as<JsonArray>() ){
@@ -945,7 +960,7 @@ wfDeviceStatus::wfDeviceStatus(){
     uiFirmwareVersion = 0;
     ulTimeStamp = 0;
     ulUptime = 0;
-    uiVoltage = 0;
+    fVoltage = 0;
     iRssi = -999;
     iHubRssi = -999;
     uiSensorStatus = 0;
@@ -959,7 +974,7 @@ bool wfDeviceStatus::ParseMsg(JsonDocument& jsonMsg){
     strHubSerialNumber = jsonMsg["hub_sn"].as<String>();
     ulTimeStamp = jsonMsg["timestamp"].as<time_t>();
     ulUptime = jsonMsg["uptime"].as<time_t>();
-    uiVoltage = jsonMsg["voltage"].as<unsigned int>();
+    fVoltage = jsonMsg["voltage"].as<float>();
     uiFirmwareVersion = jsonMsg["firmware_revision"].as<unsigned int>();
     iRssi = jsonMsg["rssi"].as<int>();
     iHubRssi = jsonMsg["hub_rssi"].as<int>();
@@ -987,8 +1002,8 @@ time_t wfDeviceStatus::TimeStamp(void){ return ulTimeStamp; };
 // Station uptime in seconds.
 time_t wfDeviceStatus::Uptime(void){ return ulUptime; };
 
-// Station battery voltage as unsigned integer.
-unsigned int wfDeviceStatus::Voltage(void){ return uiVoltage; };
+// Station battery voltage as float.
+float wfDeviceStatus::Voltage(void){ return fVoltage; };
 
 // Station wireless RSSI as integer.
 int wfDeviceStatus::RSSI(void){ return iRssi; };
@@ -1011,7 +1026,7 @@ wfDeviceStatus::DebugStatus wfDeviceStatus::Debug(void){ return static_cast<Debu
 /  *********************************************/
 wfHubStatus::wfHubStatus(){
     strHubSerialNumber.clear();
-    strFirmwareVersion.clear();
+    uiFirmwareVersion = 0;
     ulTimeStamp = 0;
     ulUptime = 0;
     iRssi = -999;
@@ -1023,7 +1038,7 @@ wfHubStatus::wfHubStatus(){
 // Parse the JSON message for the hub status data.
 bool wfHubStatus::ParseMsg(JsonDocument& jsonMsg){
     strHubSerialNumber = jsonMsg["serial_number"].as<String>();
-    strFirmwareVersion = jsonMsg["firmware_revision"].as<String>();
+    uiFirmwareVersion = jsonMsg["firmware_revision"].as<unsigned int>();
     ulTimeStamp = jsonMsg["timestamp"].as<time_t>();
     ulUptime = jsonMsg["uptime"].as<time_t>();
     iRssi = jsonMsg["rssi"].as<int>();
@@ -1036,8 +1051,8 @@ bool wfHubStatus::ParseMsg(JsonDocument& jsonMsg){
 // Hub serial number as String.
 String wfHubStatus::HubSerialNumber(void){ return strHubSerialNumber; };
 
-// Hub firmware version as String.
-String wfHubStatus::FirmwareVersion(void){ return strFirmwareVersion; };
+// Hub firmware version as unsigned int.
+unsigned int wfHubStatus::FirmwareVersion(void){ return uiFirmwareVersion; };
 
 // Status time stamp in Epoch seconds.
 time_t wfHubStatus::TimeStamp(void){ return ulTimeStamp; };
