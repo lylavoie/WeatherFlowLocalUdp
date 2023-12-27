@@ -26,7 +26,7 @@ void setup(){
         delay(500);
     }
 
-    // Begin listing for UDP WeatherFlow API packets
+    // Begin listening for UDP WeatherFlow API packets
     WF.Begin();
 }
 
